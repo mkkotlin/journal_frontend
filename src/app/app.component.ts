@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
 
   onLogout(): void{
     this.auth.logOut();
+    this.ngOnInit();
     console.log("logged out")
   }
   

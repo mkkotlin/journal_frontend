@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterLinkActive } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ export class LoginComponent {
     const { username, password } = this.loginForm.value;
     if (!username || !password)return;
     this.auth.login({username, password}).subscribe({
-      next: () => {this.router.navigate(['']),console.log('loggedIn')},
+      next: () => {this.router.navigate(['']).then(()=> window.location.reload()),console.log('loggedIn')},
       error: () => this.errorMessage = 'Invalid credentisals'
     })
   }
