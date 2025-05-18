@@ -18,9 +18,16 @@
       <li><a routerLink="/login">login</a></li>
       <li><a routerLink="/test">test</a></li>
       <li><a routerLink=" ">home</a></li>
+      <li><a href="#" (click)="onLogout()">logout</a></li>
+      <!-- <li><button (click)="onLogout()">Logout</button></li> -->
     </ul>
   </div>
 </nav>
+<hr>
+<p *ngIf="responseData">Res: {{responseData}}</p>
+<p *ngIf="errorMsg">error: {{errorMsg}}</p>
+
+
 <hr>
 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium libero quaerat voluptas cumque cum excepturi, dolor temporibus! Delectus qui quasi quas unde velit voluptatem excepturi deserunt. Aperiam consequuntur magni porro!</p>
 <router-outlet></router-outlet>

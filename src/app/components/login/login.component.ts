@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
+import { Router, RouterLinkActive } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +11,28 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  private fb = inject(FormBuilder);
-    loginForm = this.fb.group({
+  constructor(private fb: FormBuilder,private auth: AuthService, private router: Router){}
+  loginForm!: FormGroup;
+  ngOnInit() {
+      this.loginForm = this.fb.group({
       username: ['',Validators.required],
       password: ['',Validators.required]
     });
+  
+  }
   errorMessage = '';
 
+  
+
+  
+    
   onSubmit(){
-    console.log('clicked', this.loginForm.getRawValue())
+    console.log('clicked', this.loginForm.getRawValue());
+    const { username, password } = this.loginForm.value;
+    if (!username || !password)return;
+    this.auth.login({username, password}).subscribe({
+      next: () => {this.router.navigate(['']),console.log('loggedIn')},
+      error: () => this.errorMessage = 'Invalid credentisals'
+    })
   }
 }
