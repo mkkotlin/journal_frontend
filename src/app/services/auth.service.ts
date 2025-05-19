@@ -17,6 +17,7 @@ export class AuthService {
       localStorage.setItem(this.tokenKey, res.access);
       console.log(res.access)
       this.isLoggedIn$.next(true);
+      console.log(localStorage.getItem('authToken'))
     })
   );
   }
