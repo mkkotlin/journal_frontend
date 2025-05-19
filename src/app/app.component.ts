@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   constructor( private auth: AuthService){}
   ngOnInit():void{
     this.auth.getProtectedData().subscribe({
-      next: (res:any) => {this.responseData = JSON.stringify(res.message), console.log(JSON.stringify(res))},
+      next: (res:any) => {this.responseData = JSON.stringify(res), console.log(JSON.stringify(res))},
       error: (err: any) => this.errorMsg = 'Token expired'      
     })
   }

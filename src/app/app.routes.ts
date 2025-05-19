@@ -5,5 +5,5 @@ import { JournalListComponent } from './components/journal-list/journal-list.com
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent},
-    { path: 'journal_list', component: JournalListComponent}
+    { path: 'journal_list', component: JournalListComponent},
 ];
