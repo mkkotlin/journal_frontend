@@ -40,6 +40,8 @@ export class AuthService {
       console.log('no token');
       return of(null);
     }
+
+    
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });

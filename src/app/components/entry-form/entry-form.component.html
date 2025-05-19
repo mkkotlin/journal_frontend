@@ -1,0 +1,7 @@
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+    <input formControlName="title">
+    <input formControlName="mood">
+    <input formControlName="is_private">
+    <button type="submit">submit</button>
+    <p *ngIf="successMessage" style="color: green;">{{successMessage}}</p>
+</form>
