@@ -1,15 +1,28 @@
+<div class="formDiv">
 <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
-    <input formControlName="title">
-    <input formControlName="mood">
-    <!-- <input formControlName="is_private"> -->
-    <button type="submit">submit</button>
+    <input formControlName="title" placeholder="title">
+    <input formControlName="mood" placeholder="mood now">
+    <button type="submit" class="button1">submit</button>
     <p *ngIf="successMessage" style="color: green;">{{successMessage}}</p>
 </form>
 
-<button (click)="loadEntries()">Load Entries</button>
 
+<hr >
+
+
+<button (click)="loadEntries()" >Load Entries</button>
 <ul *ngIf="entries.length">
-    <li *ngFor="let i of entries">
+    
+    <!-- <li *ngFor="let i of entries">
         {{i.title}}
+    </li> -->
+    <li *ngFor="let i of entries" > 
+    <div class="card">
+        <div class="container">
+            <p>Title: {{i.title}}</p>
+            <p>Moods: {{i.mood}}</p> 
+        </div>
+    </div>
     </li>
 </ul>
+</div>
