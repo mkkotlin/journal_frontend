@@ -3,14 +3,16 @@
     <input formControlName="title" placeholder="title">
     <input formControlName="mood" placeholder="mood now">
     <button type="submit" class="button1">submit</button>
-    <p *ngIf="successMessage" style="color: green;">{{successMessage}}</p>
+    <p *ngIf="successMessage" style="color: green;"><strong>{{successMessage}}</strong></p>
+    <p *ngIf="errorMessage" style="color: red;"><strong>{{errorMessage}}</strong></p>
 </form>
 
 
 <hr >
 
 
-<button (click)="loadEntries()" >Load Entries</button>
+<!-- <button (click)="loadEntries()" >Load Entries</button> -->
+ <h2>User Entry</h2>
 <ul *ngIf="entries.length">
     
     <!-- <li *ngFor="let i of entries">
