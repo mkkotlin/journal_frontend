@@ -1,0 +1,54 @@
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margin */
+}
+
+body {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.form-container {
+    width: 100%; /* Full width */
+    max-width: 400px; /* Set a maximum width for the container */
+    text-align: center; /* Center text and inline elements */
+    padding: 20px; /* Optional: Add padding around the container */
+    margin: auto;
+}
+
+.form {
+    padding: 20px; /* Add padding around the form */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    background-color: #fff; /* Optional: Background color */
+}
+
+input {
+    display: block; /* Stack inputs vertically */
+    width: 100%; /* Full width of the form */
+    padding: 12px 20px; /* Padding inside the input */
+    margin: 8px 0; /* Vertical margin */
+    box-sizing: border-box; /* Include padding and border in width */
+    border: 2px solid red; /* Red border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+button {
+    border: 2px solid green; /* Green border */
+    border-radius: 20px; /* Rounded corners */
+    color: rgb(0, 0, 0); /* Black text */
+    padding: 10px 25px; /* Padding inside the button */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Inline block for button */
+    font-size: 16px; /* Font size */
+    margin-top: 10px; /* Space above the button */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+button:hover {
+    background-color: green; /* Change background on hover */
+    color: white; /* Change text color on hover */
+}

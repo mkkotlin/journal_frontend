@@ -7,5 +7,5 @@ import { EntryFormComponent } from './components/entry-form/entry-form.component
 export const routes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'journal_list', component: JournalListComponent},
-    { path:'add-entry', component: EntryFormComponent}
+    { path:'add-entry', component: EntryFormComponent,}
 ];
