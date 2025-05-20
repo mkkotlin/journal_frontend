@@ -27,6 +27,7 @@ export class EntryService {
 
   createEntries(
     entry:{
+      
       title: string;
       mood: string;
     }
