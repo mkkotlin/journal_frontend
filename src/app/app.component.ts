@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
     this.isLoggedIn = this.auth.isLoggedIn();
     this.auth.getProtectedData().subscribe({
       next: (res:any) => {this.responseData = `Hello ${localStorage.getItem('username')} 😊`},
-      error: (err: any) => this.errorMsg = 'Token Expired, Login Again!'      
+      error: (err: any) => this.errorMsg = 'Token Expired'      
     })
   }
 

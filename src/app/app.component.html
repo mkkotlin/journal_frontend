@@ -24,7 +24,7 @@
 </nav>
 
 <h2 style="color: green;"><p *ngIf="isLoggedIn" >{{responseData}} </p></h2>
-<h2><p *ngIf="errorMsg" style="color: red;">{{errorMsg}}</p></h2>
+<h2><p *ngIf="errorMsg" style="color: red;">{{errorMsg}} <a href="#" (click)="onLogout()">Login again!</a></p></h2>
 <h2><p *ngIf="!isLoggedIn" style="color: red;">You are not LoggedIn, Login Required{{errorMsg}}</p></h2>
 <hr style="height: 2px; background-color:red; margin-bottom:20px;">
 <router-outlet></router-outlet>
