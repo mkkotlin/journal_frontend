@@ -1,4 +1,15 @@
-<H2>journal-list</H2>
+<H2>Create Journal</H2>
+<div class="formDiv">
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+    <input formControlName="title" placeholder="title">
+    <input formControlName="content" placeholder="content">
+    <button type="submit" class="button1">submit</button>
+    <p *ngIf="successMessage" style="color: green;"><strong>{{successMessage}}</strong></p>
+    <p *ngIf="errorMessage" style="color: red;"><strong>{{errorMessage}}</strong></p>
+</form>
+<hr>
+
+<h2>Journal List</h2>
 <ul *ngIf="journalList.length">
     <li *ngFor="let i of journalList" > 
     <div class="card">
@@ -11,4 +22,4 @@
     </li>
 </ul>
 
-<hr>
+

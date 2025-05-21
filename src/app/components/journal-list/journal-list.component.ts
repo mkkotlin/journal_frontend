@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { JournalListService } from '../../services/journal-list.service';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-journal-list',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './journal-list.component.html',
   styleUrl: './journal-list.component.css'
 })
 export class JournalListComponent {
-  constructor(private journalService: JournalListService, ){}
+  constructor(private journalService: JournalListService, private fb: FormBuilder){}
 
   journalList: any[] = []
   getList(){
@@ -20,5 +21,26 @@ export class JournalListComponent {
   }
   ngOnInit() {
     this.getList()
+    this.crateEntry()
   }
+  entryForm !: FormGroup;
+  errorMessage = '';
+  successMessage = '';
+  crateEntry(){
+    this.entryForm = this.fb.group({
+      title: ['', Validators.required],
+      content: ['',Validators.required]
+    })
+  }
+
+  onSubmit(){
+    console.log('list')
+    if (this.entryForm.valid){
+      this.journalService.createJournalEntry(this.entryForm.value).subscribe({
+        next: ()=> {this.successMessage = 'Added', this.ngOnInit(), this.errorMessage = ''},
+        error: ()=> {this.errorMessage = 'Someting went wrong', this.successMessage=''}
+      })
+    }
+  }
+
 }

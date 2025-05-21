@@ -18,4 +18,15 @@ export class JournalListService {
     return this.http.get(this.apiUrl, {headers})
   }
 
+  createJournalEntry(entry:{
+    title: string;
+    content: string;
+  }):Observable<any>{
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    return this.http.post(this.apiUrl, entry , {headers})
+  }
+
 }
