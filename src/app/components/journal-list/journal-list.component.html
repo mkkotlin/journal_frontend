@@ -1,1 +1,14 @@
-<p>journal-list works!</p>
+<H2>journal-list</H2>
+<ul *ngIf="journalList.length">
+    <li *ngFor="let i of journalList" > 
+    <div class="card">
+        <div class="container">
+            <p>Title: {{i.title}}</p>
+            <p>Content: {{i.content}}</p> 
+            <p>Date created: {{i.created_at}}</p>
+        </div>
+    </div>
+    </li>
+</ul>
+
+<hr>
