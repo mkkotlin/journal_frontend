@@ -16,7 +16,6 @@ export class EntryFormComponent {
     ngOnInit(){
       this.loadEntries();
       const a = localStorage.getItem('access_token')
-      console.log(a)
     this.entryForm = this.fb.group({
       title: ['', Validators.required],
       mood: ['',Validators.required],
@@ -39,11 +38,10 @@ export class EntryFormComponent {
     entries: any[] = [];
     loadEntries(){
       this.entryService.getEntries().subscribe({
-        next: (res: any)=> { this.entries = res, console.log(res)},
+        next: (res: any)=> { this.entries = res},
         error: err =>{
-          console.log(err)
         }
-        
+        // 
       })
     }
 }

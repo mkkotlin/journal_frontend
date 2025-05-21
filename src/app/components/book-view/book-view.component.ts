@@ -43,7 +43,6 @@ export class BookViewComponent {
         this.entry = res.entry;
       }, error: (err) => {
         this.error = 'Failed';
-        console.error(err)
       }
     })
   }

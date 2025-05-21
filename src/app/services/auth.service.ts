@@ -15,9 +15,7 @@ export class AuthService {
   login(credentials: {username: string; password: string}){
     return this.http.post<any>(`${this.apiUrl}token/`, credentials).pipe(tap( res => {
       localStorage.setItem(this.tokenKey, res.access);
-      console.log(res.access)
       this.isLoggedIn$.next(true);
-      console.log(localStorage.getItem('authToken'))
     })
   );
   }
@@ -37,7 +35,6 @@ export class AuthService {
     // return this.http.get('http://127.0.0.1:8000/api/test/', {withCredentials: true}) //works with cookies not localStorage
     const token = localStorage.getItem('access_token');
     if (!token){
-      console.log('no token');
       return of(null);
     }
 
@@ -45,7 +42,6 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    console.log('headers',headers)
     return this.http.get(`${this.apiUrl}test/`, {headers})
   }
 

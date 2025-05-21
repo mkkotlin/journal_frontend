@@ -15,7 +15,7 @@ export class JournalListComponent {
   journalList: any[] = []
   getList(){
     this.journalService.getJournal().subscribe({
-      next: (res: any) => {this.journalList = res, console.log(this.journalList)},
+      next: (res: any) => {this.journalList = res},
       error: err => {console.log(err)}
     })
   }
@@ -34,7 +34,6 @@ export class JournalListComponent {
   }
 
   onSubmit(){
-    console.log('list')
     if (this.entryForm.valid){
       this.journalService.createJournalEntry(this.entryForm.value).subscribe({
         next: ()=> {this.successMessage = 'Added', this.ngOnInit(), this.errorMessage = ''},

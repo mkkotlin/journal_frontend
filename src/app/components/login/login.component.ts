@@ -28,7 +28,6 @@ export class LoginComponent {
   
     
   onSubmit(){
-    console.log('clicked', this.loginForm.getRawValue());
     const { username, password } = this.loginForm.value;
     localStorage.setItem('username', username)
     if (!username || !password)return;

@@ -14,7 +14,6 @@ export class EntryService {
   getEntries():Observable<any>{
      const token = localStorage.getItem('access_token');
         if (!token){
-          console.log('no token');
           return of(null);
         }
     
