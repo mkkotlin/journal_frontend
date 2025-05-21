@@ -1,1 +1,15 @@
-<p>book-view works!</p>
+<div class="entry-box" *ngFor="let e of entry; let i of mood">
+  <h2 class="entry-title">title: {{e.title}}</h2>
+  <hr />
+
+  <div class="entry-content">
+    <p>content: {{e.content}} </p>
+  </div>
+
+  <hr />
+
+  <div class="entry-footer">
+    <span class="entry-date">date: {{e.date}}</span>
+    <span class="entry-mood">mood: {{i.mood}}</span>
+  </div>
+</div>
