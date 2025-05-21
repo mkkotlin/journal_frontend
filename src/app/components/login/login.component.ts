@@ -30,9 +30,12 @@ export class LoginComponent {
   onSubmit(){
     console.log('clicked', this.loginForm.getRawValue());
     const { username, password } = this.loginForm.value;
+    localStorage.setItem('username', username)
     if (!username || !password)return;
     this.auth.login({username, password}).subscribe({
-      next: () => {this.router.navigate(['']).then(()=> window.location.reload()),console.log('loggedIn')},
+      next: () => {this.router.navigate(['/journal-list']).then(
+        ()=> window.location.reload()
+      ),console.log('loggedIn')},
       error: () => this.errorMessage = 'Invalid credentisals'
     })
   }

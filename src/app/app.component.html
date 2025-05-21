@@ -15,20 +15,16 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a routerLink="/login">login</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
       <li><a routerLink="/journal-list">journal list</a></li>
       <li><a routerLink="/add-entry">Entry list</a></li>
-      <li><a routerLink=" ">home</a></li>
-      <li><a href="#" (click)="onLogout()">logout</a></li>
-      <!-- <li><button (click)="onLogout()">Logout</button></li> -->
+      <li *ngIf="isLoggedIn"><a href="#" (click)="onLogout()">logout</a></li>
     </ul>
   </div>
 </nav>
-<hr>
-<p *ngIf="responseData">Res: {{responseData}}</p>
-<p *ngIf="errorMsg">error: {{errorMsg}}</p>
 
-
-<hr>
-<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium libero quaerat voluptas cumque cum excepturi, dolor temporibus! Delectus qui quasi quas unde velit voluptatem excepturi deserunt. Aperiam consequuntur magni porro!</p>
+<h2 style="color: green;"><p *ngIf="isLoggedIn" >{{responseData}} </p></h2>
+<h2><p *ngIf="errorMsg" style="color: red;">{{errorMsg}}</p></h2>
+<h2><p *ngIf="!isLoggedIn" style="color: red;">You are not LoggedIn, Login Required{{errorMsg}}</p></h2>
+<hr style="height: 2px; background-color:red; margin-bottom:20px;">
 <router-outlet></router-outlet>
