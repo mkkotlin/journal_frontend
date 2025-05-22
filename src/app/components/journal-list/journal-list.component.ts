@@ -82,4 +82,13 @@ clearFilter(){
   this.toDate='';
 }
 
+toggleTheme(event:any){
+  const isDark = event.target.checked;
+  if (isDark){
+    document.body.classList.add('dark-mode');
+  }else{
+    document.body.classList.remove('dark-mode')
+  }
+}
+
 }
