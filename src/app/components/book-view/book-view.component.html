@@ -1,4 +1,4 @@
-<div class="entry-box" *ngFor="let e of entry; let i of mood">
+<div class="entry-box" *ngFor="let e of entry; ">
   <h2 class="entry-title">title: {{e.title}}</h2>
   <hr />
 
@@ -9,7 +9,7 @@
   <hr />
 
   <div class="entry-footer">
-    <span class="entry-date">date: {{e.date}}</span>
-    <span class="entry-mood">mood: {{i.mood}}</span>
+    <span class="entry-date">date: {{e.date | date:'medium'}} </span>
+    <span class="entry-mood"></span>
   </div>
 </div>

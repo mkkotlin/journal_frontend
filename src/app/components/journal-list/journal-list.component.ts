@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { JournalListService } from '../../services/journal-list.service';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-journal-list',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './journal-list.component.html',
   styleUrl: './journal-list.component.css'
 })
@@ -49,5 +49,37 @@ export class JournalListComponent {
       }
     )
   }
+  fromDate: string = '';
+toDate: string = '';
+searchText: string='';
+
+get filteredList() {
+  const lowerSearch = this.searchText.toLowerCase();
+
+  return this.journalList.filter(entry => {
+    const matchText =
+      entry.title.toLowerCase().includes(lowerSearch) ||
+      entry.content.toLowerCase().includes(lowerSearch);
+
+    const entryDate = new Date(entry.created_at);
+    const from = this.fromDate ? new Date(this.fromDate): null;
+    const to = this.toDate ? new Date(this.toDate): null;
+
+    // if (from) from.setHours(0,0,0,0);
+    // if (to) to.setHours(23,59,59,999)
+
+    const matchDate =
+      (!this.fromDate || entryDate >= new Date(this.fromDate)) &&
+      (!this.toDate || entryDate <= new Date(this.toDate));
+
+    return matchText && matchDate;
+  });
+}
+
+clearFilter(){
+  this.searchText ='';
+  this.fromDate ='';
+  this.toDate='';
+}
 
 }

@@ -10,13 +10,25 @@
 <hr>
 
 <h2>Journal List</h2>
+<input type="text" [(ngModel)]="searchText" placeholder="Search journals..." />
+
+<label>From:
+  <input type="date" [(ngModel)]="fromDate" style="width: 200px;"/>
+</label>
+
+<label>To:
+  <input type="date" [(ngModel)]="toDate" style="width: 200px;"/>
+</label>
+<button (click)="clearFilter()">Clear Filter</button>
+
+
 <ul *ngIf="journalList.length">
-    <li *ngFor="let i of journalList" > 
+    <li *ngFor="let i of filteredList" > 
     <div class="card">
         <div class="container">
             <p>Title: {{i.title}}</p>
             <p class="content-box">Content: {{i.content}}</p> 
-            <p>Date created: {{i.created_at}}</p>
+            <p>Date created: {{i.created_at | date:'mediumDate'}}</p>
             <button (click)="onDelete(i.id)">Delete</button>
         </div>
     </div>
@@ -24,3 +36,4 @@
 </ul>
 
 
+<p *ngIf="!filteredList.length">No matching journal found.</p>

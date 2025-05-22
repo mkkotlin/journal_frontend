@@ -41,6 +41,7 @@ export class BookViewComponent {
       next: (res)=>{
         this.mood = res.mood;
         this.entry = res.entry;
+        console.log(res.entry)
       }, error: (err) => {
         this.error = 'Failed';
       }
