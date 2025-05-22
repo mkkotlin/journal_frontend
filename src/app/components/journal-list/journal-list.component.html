@@ -2,7 +2,7 @@
 <div class="formDiv">
 <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
     <input formControlName="title" placeholder="title">
-    <input formControlName="content" placeholder="content">
+    <textarea formControlName="content" placeholder="content" style="height: 200px;"></textarea>
     <button type="submit" class="button1">submit</button>
     <p *ngIf="successMessage" style="color: green;"><strong>{{successMessage}}</strong></p>
     <p *ngIf="errorMessage" style="color: red;"><strong>{{errorMessage}}</strong></p>
@@ -15,8 +15,9 @@
     <div class="card">
         <div class="container">
             <p>Title: {{i.title}}</p>
-            <p>Content: {{i.content}}</p> 
+            <p class="content-box">Content: {{i.content}}</p> 
             <p>Date created: {{i.created_at}}</p>
+            <button (click)="onDelete(i.id)">Delete</button>
         </div>
     </div>
     </li>

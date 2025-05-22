@@ -44,4 +44,12 @@ export class EntryFormComponent {
         // 
       })
     }
+
+    onDelete(id:number){
+      this.entryService.deleteEntry(id).subscribe(
+        ()=>{
+          this.entries = this.entries.filter(e => e.id !== id)
+        }
+      )
+    }
 }

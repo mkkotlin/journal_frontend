@@ -29,4 +29,12 @@ export class JournalListService {
     return this.http.post(this.apiUrl, entry , {headers})
   }
 
+  deleteJournalEntry(id:number):Observable<any>{
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    return this.http.delete(`${this.apiUrl}${id}/`,{headers});
+  }
+
 }

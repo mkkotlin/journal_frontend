@@ -42,4 +42,12 @@ export class JournalListComponent {
     }
   }
 
+  onDelete(id: number){
+    this.journalService.deleteJournalEntry(id).subscribe(
+      ()=>{
+        this.journalList = this.journalList.filter( e => e.id !== id)
+      }
+    )
+  }
+
 }

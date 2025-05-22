@@ -10,7 +10,7 @@ hr{
     padding-left: 50px;
 }
 
-input {
+input, textarea {
     display: block;
   width: 25%;
   padding: 12px 20px;
@@ -58,4 +58,9 @@ button:hover {
 li{
     list-style-type: none;
     padding: 10px;
+}
+.content-box{
+  max-height: 100px;
+  white-space: pre-wrap;
+  overflow: auto;
 }
